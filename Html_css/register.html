@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        body {
+            background-image: url(img5.jpg);
+            background-size: cover;
+
+        }
+    </style>
+</head>
+
+<body>
+
+        <script type="text/javascript">
+
+                    function allLetter(inputtxt)
+                    { 
+                           var letters = /^[A-Za-z]+$/;
+                           if(inputtxt.value.match(letters))
+                           {
+                                alert('Your name have accepted : you can try another');
+                                return true;
+                            }
+                            else
+                            {
+                                alert('Please input alphabet characters only');
+                                return false;
+                            }
+                    }
+                    
+
+                    /*function checkEmail() 
+                    {
+
+                            var email = document.getElementById('email');
+
+                            /*var filter = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+                            /*var filter = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;*/
+                            /*var filter =/^([\w-\.]+@(?!gmail.com)([\w-]+\.)+[\w-]{2,4})?$/;*/
+                            /*var filter = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;*/
+                            /*var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;*/
+                            /*var filter = /^[a-A-Za-z0-9._]+@[a-A-Za-z0-9]+.[a-z]{2,6}$/;
+                            var filter ="[a-A-Za-z0-9.-_]{1}@[a-zA-Z.-]{2,}[.]{1}[a-a-zA-Z]{2,}"
+
+                            if (!filter.test(email.value)) 
+                            {
+                                 alert('Please provide a valid email address');
+                                 email.focus;
+                                 return false;
+                            }
+                    }*/
+
+                var myInput = document.getElementById("psw");
+                var letter = document.getElementById("letter");
+                var capital = document.getElementById("capital");
+                var number = document.getElementById("number");
+                var length = document.getElementById("length");
+                
+                // When the user clicks on the password field, show the message box
+                myInput.onfocus = function() {
+                  document.getElementById("message").style.display = "block";
+                }
+                
+                // When the user clicks outside of the password field, hide the message box
+                myInput.onblur = function() {
+                  document.getElementById("message").style.display = "none";
+                }
+                
+                // When the user starts to type something inside the password field
+                myInput.onkeyup = function() {
+                  // Validate lowercase letters
+                  var lowerCaseLetters = /[a-z]/g;
+                  if(myInput.value.match(lowerCaseLetters)) {  
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                  } else {
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                  }
+                  
+                  // Validate capital letters
+                  var upperCaseLetters = /[A-Z]/g;
+                  if(myInput.value.match(upperCaseLetters)) {  
+                    capital.classList.remove("invalid");
+                    capital.classList.add("valid");
+                  } else {
+                    capital.classList.remove("valid");
+                    capital.classList.add("invalid");
+                  }
+                
+                  // Validate numbers
+                  var numbers = /[0-9]/g;
+                  if(myInput.value.match(numbers)) {  
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                  } else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                  }
+                  
+                  // Validate length
+                  if(myInput.value.length >= 8) {
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                  } else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                  } 
+                  /*function checkPassword(form) { 
+                    password = form.password.value; 
+                    cnfrm_password = form.cnfrm_password.value; 
+              
+                            // If password not entered 
+                            if (password == '') 
+                                alert ("Please enter Password"); 
+                                  
+                            // If confirm password not entered 
+                            else if (cnfrm_password == '') 
+                                alert ("Please enter confirm password"); 
+                                  
+                            // If Not same return False.     
+                            else if (password != cnfrm_password) { 
+                                alert ("\nPassword did not match: Please try again...") 
+                                return false; 
+                            } 
+              
+                            // If same return True. 
+                            else{ 
+                                alert("Password Match:!") 
+                                return true; 
+                            } 
+                        }*/ 
+                }
+                function Validate() 
+                {
+                    var password1 = document.stud_details.password.value;
+                    var cnfrm_password1= document.stud_details.cnfrm_password.value;
+                    if (password1 == cnfrm_password1) 
+                    {
+                            alert("Passwords match.");
+                            return true;
+                    }
+                    else{
+                            alert("Password Must be same:!")
+                            return false;
+                    }
+                            
+                }
+                function mobilenumber(inputtxt)
+                {
+                     var mobileno = /^\d{10}$/;
+                     if(inputtxt.value.match(mobileno))
+                     {
+                            return true;
+                     }
+                    else
+                     {
+                            alert("Not a valid mobile Number");
+                            return false;
+                     }
+                }
+                    
+                </script>s
+                
+
+    <div class="main" style="margin-top: 5%;">
+
+        <section class="studentdetail">
+            <div class="container">
+                <div class="studentdetail-content">
+                    <form method="GET" name="stud_details" id="studentdetail-form" class="studentdetail-form">
+                        <h2 class="form-title">Student Details Form</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="Name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Email" 
+                            pattern ="[a-A-Za-z0-9.-_]{1}@[a-zA-Z.-]{2,}[.]{1}[a-a-zA-Z]{2,}"
+                            required />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="password" id="password"
+                                placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                title="Must contain at least one number and one uppercase and lowercase letter, 
+                                and at least 8 or more characters" required>/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="cnfrm_password" id="cnfrm_password"
+                                placeholder="Confirm password" required />
+                        </div>
+
+                        <div class="form-group">
+                                <input type="mobileno" class="form-input" name="mobileno" id="mobileno"
+                                    placeholder="Mobile No" required />
+                            </div>
+
+                        <div class="form-group">
+                                <p>select your BirthDate:</p>
+                                <input type="date" class="form-input" name="date" id="date"
+                                    placeholder="BirthDate" required />
+                        </div>
+
+                        <div class="form-group" id="city">
+                                <p>Please select your City:</p>
+                                  <select id="City" name="City">
+                                    <option value="select">Select</option>
+                                    <option value="Amreli">Amreli</option>
+                                    <option value="Rajkot">Rajkot</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                  </select>
+                         </div>
+
+                        <div class="form-group">
+                                <p>Please select your Hobbies:</p>
+                                <input type="checkbox" name="gender" value="Reading"> Reading
+                                <input type="checkbox" name="gender" value="Travelling"> Travelling
+                                <input type="checkbox" name="gender" value="Music"> Music 
+                        
+                        </div>
+                        <div class="form-group">
+                                <p>Display Message:</p>
+                                <textarea id="msg" name="Message" placeholder="Write something.." style="height:100px; width:300px" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" 
+                            value="submit" formaction="regi.js"/>
+                            
+                        </div>
+                
+                    <button  class="form-submit" type="clear" value="clear">Clear</button>
+
+                </form>
+                </div>
+          
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
